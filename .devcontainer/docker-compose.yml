@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  devcontainer:
+    image: mcr.microsoft.com/devcontainers/java:0-17
+    volumes: 
+      - ../:/workspaces/project_dict
+    networks:
+      - nw_dict
+  
+  dict_app:
+    image: tomcat:latest
+    volumes:
+      -../build/dict_web:
